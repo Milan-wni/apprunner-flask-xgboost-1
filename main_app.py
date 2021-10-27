@@ -20,7 +20,7 @@ model = load_artifact(MODEL_PATH)
 # "http://<ドメイン名>"へアクセスしたときのブラウザ表示
 @app.route("/")
 def index():
-    return "XGBoost prediction API with App Runner and flask."
+    return "LightGBM prediction API with App Runner and flask."
 
 # "http://<ドメイン名>/api/v1/predict"へAPI呼び出しを行う際の動作
 @app.route("/api/v1/predict", methods=["POST"])
