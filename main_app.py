@@ -33,12 +33,20 @@ def predict():
     if request.get_json().get("feature"):
         feature = request.get_json().get("feature") # リクエストからfeature読み込み
         
+        ver = check_version()
         #response["pred"] = model_predict(feature) # model_predict関数を使ってモデル予測
-        response["pred"] = model
+        response["version"] = ver
         response["success"] = True
 
     return jsonify(response)
 
+def check_version():
+    pkglist = ['xgboost', 'lightgbm']
+    for dist in pkg_resources.working_set:
+        if dist.project_name in pkglist:
+            return dist.project_name, dist.version
+        else:
+            return dist.project_name, "nothing"
 
 def model_predict(feature):
     global model
