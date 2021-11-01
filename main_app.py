@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 import numpy as np
 import pickle
 import xgboost as xgb
+import pkg_resources
 
 app = Flask(__name__)
 MODEL_PATH = "./artifact/xgboost_model.pickle"
