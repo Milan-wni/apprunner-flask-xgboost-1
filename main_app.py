@@ -34,7 +34,7 @@ def predict():
         feature = request.get_json().get("feature") # リクエストからfeature読み込み
         
         #response["pred"] = model_predict(feature) # model_predict関数を使ってモデル予測
-        response["pred"] = 'This is test"
+        response["pred"] = "This is test"
         response["success"] = True
 
     return jsonify(response)
